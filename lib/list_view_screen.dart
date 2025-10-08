@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ColumnScreen extends StatefulWidget {
-  const ColumnScreen({super.key});
+class ListViewScreen extends StatefulWidget {
+  const ListViewScreen({super.key});
 
   @override
-  State<ColumnScreen> createState() => _ColumnScreenState();
+  State<ListViewScreen> createState() => _ListViewScreenState();
 }
 
-class _ColumnScreenState extends State<ColumnScreen> {
+class _ListViewScreenState extends State<ListViewScreen> {
   List<String> shoppingItems = [
     'Хлеб',
     'Молоко',
@@ -70,32 +70,35 @@ class _ColumnScreenState extends State<ColumnScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Список продуктов'),
+        title: const Text('ListView'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: _addItemDialog,
-              child: const Text('Добавить продукт'),
-            ),
-            ...shoppingItems.map((String item) {
-              return Card(
-                child: ListTile(
-                  title: Text(item),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.delete, color: Colors.red),
-                    onPressed: () {
-                      setState(() {
-                        shoppingItems.remove(item);
-                      });
-                    },
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: _addItemDialog,
+            child: const Text('Добавить продукт'),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: shoppingItems.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  child: ListTile(
+                    title: Text(shoppingItems[index]),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.delete, color: Colors.red),
+                      onPressed: () {
+                        setState(() {
+                          shoppingItems.removeAt(index);
+                        });
+                      },
+                    ),
                   ),
-                ),
-              );
-            }),
-          ],
-        ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
