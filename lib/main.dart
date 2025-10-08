@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'column_screen.dart';
 import 'list_view_screen.dart';
+import 'list_view_separated_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     const ColumnScreen(),
     const ListViewScreen(),
+    const ListViewSeparatedScreen(),
   ];
 
   @override
@@ -56,6 +58,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
             label: 'ListView',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt),
+            label: 'Separated',
           ),
         ],
       ),
