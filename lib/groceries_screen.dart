@@ -8,8 +8,28 @@ class ColumnScreen extends StatefulWidget {
 }
 
 class _ColumnScreenState extends State<ColumnScreen> {
-  List<String> shoppingItems = ['Хлеб', 'Молоко', 'Яблоки'];
-
+  List<String> shoppingItems = [
+    'Хлеб',
+    'Молоко',
+    'Яблоки',
+    'Банан',
+    'Кофе',
+    'Сахар',
+    'Чай',
+    'Печенье',
+    'Сыр',
+    'Колбаса',
+    'Йогурт',
+    'Сок',
+    'Макароны',
+    'Рис',
+    'Гречка',
+    'Мясо',
+    'Рыба',
+    'Овощи',
+    'Фрукты',
+    'Шоколад'
+  ];
   final TextEditingController _textFieldController = TextEditingController();
 
   void _addItemDialog() {
@@ -50,9 +70,10 @@ class _ColumnScreenState extends State<ColumnScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Список (Column)'),
+        title: const Text('Список продуктов'),
       ),
-        body: Column(
+      body: SingleChildScrollView(
+        child: Column(
           children: [
             ElevatedButton(
               onPressed: _addItemDialog,
@@ -75,6 +96,7 @@ class _ColumnScreenState extends State<ColumnScreen> {
             }),
           ],
         ),
+      ),
     );
   }
 }

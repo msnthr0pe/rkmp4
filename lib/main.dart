@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'column_screen.dart';
+import 'groceries_screen.dart';
 
 void main() {
   runApp(const MyApp());
