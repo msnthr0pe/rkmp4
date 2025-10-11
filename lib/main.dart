@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'column_screen.dart';
-import 'list_view_screen.dart';
-import 'list_view_separated_screen.dart';
+import 'first_screen/column_screen.dart';
+import 'second_screen/list_view_screen.dart';
+import 'third_screen/list_view_separated_screen.dart';
 
 void main() {
   runApp(const MyApp());
